@@ -224,6 +224,11 @@ GetExamSchedule(examId:any):Observable<any>
   return this.httpHelper.HttpGet(`ExamSchedule/ByExamId/${examId}`);
 }
 
+GetExamQuestionPaper(schId:any):Observable<any>
+{
+  return this.httpHelper.HttpGet(`ExamSchedule/File/${schId}`);
+}
+
   /*GetCertificateById(id:any):Observable<CertificateDTO>
   {
     return this.httpHelper.HttpGet<CertificateDTO>(`Certificate/${id}`,undefined,undefined);

@@ -9,6 +9,7 @@ import { NewExamScheduleRequestDTO } from 'src/app/models/new-exam-schedule-requ
 import { StreamSubjectMapDTO } from 'src/app/models/StreamSubjectMapDTO';
 import { SubjectExamScheduleDTO } from 'src/app/models/subject-exam-schedule-dto';
 
+
 @Component({
   selector: 'app-schedule-exam',
   templateUrl: './schedule-exam.component.html',
@@ -21,7 +22,9 @@ export class ScheduleExamComponent implements OnInit{
   scheduleForm: FormGroup;
   items: FormArray|undefined;
   inpFileArray:any[]=[];
+  displayPaper:boolean=false;
   examScheduleData:ExamScheduleDTO[]=[];
+  QuestionPaperUrl:string="";
 constructor(private formBuilder: FormBuilder,private router:Router,private srv:DbAccessServiceService,private dlgSrv:ShowDialogService,private activeRoute:ActivatedRoute)
  {
     this.activeRoute.params.subscribe((prms)=>{
@@ -167,12 +170,27 @@ PopulateScheduleData()
   })
 }
 GetTimeFragment(inp:Date):string{
-  console.log(inp);
+  //console.log(inp);
 return new Date(inp).toLocaleTimeString('en-US');
 }
 
 GetDateFragment(inp:Date):string{
-  console.log(inp);
+  //console.log(inp);
 return new Date(inp).toDateString();
+}
+
+ShowQuestionPapaer(schId:any)
+{
+  this.displayPaper=false;
+  this.QuestionPaperUrl="";
+  this.srv.GetExamQuestionPaper(schId).subscribe({
+    next:(data)=>{
+      this.displayPaper=true;
+      //console.log(data.Data)
+      var streamValue=Base64Binary.decodeArrayBuffer(data.Data); 
+      console.log(streamValue)
+      this.QuestionPaperUrl = window.URL.createObjectURL(new Blob([streamValue],{ type: "application/octet-stream" }));
+    }
+  });
 }
 }

@@ -35,6 +35,7 @@ import { ManageExamComponent } from './exam-management/manage-exam/manage-exam.c
 import { ManageExamScheduleComponent } from './exam-management/manage-exam-schedule/manage-exam-schedule.component';
 import { AddExamComponent } from './exam-management/add-exam/add-exam.component';
 import { ScheduleExamComponent } from './exam-management/schedule-exam/schedule-exam.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,7 +75,8 @@ import { ScheduleExamComponent } from './exam-management/schedule-exam/schedule-
     NgxPrintModule,
     MatIconModule,
     MatGridListModule,
-    DataTablesModule
+    DataTablesModule,
+    PdfViewerModule
   ],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {} },
