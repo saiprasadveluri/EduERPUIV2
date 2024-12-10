@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DbAccessServiceService } from 'src/app/Infra/db-access-service.service';
 import { ShowDialogService } from 'src/app/Infra/show-dialog.service';
 import { ExamDTO } from 'src/app/models/exam-dto';
+import { ExamScheduleDTO } from 'src/app/models/exam-schedule-dto';
 import { NewExamScheduleRequestDTO } from 'src/app/models/new-exam-schedule-request-dto';
 import { StreamSubjectMapDTO } from 'src/app/models/StreamSubjectMapDTO';
 import { SubjectExamScheduleDTO } from 'src/app/models/subject-exam-schedule-dto';
@@ -20,6 +21,7 @@ export class ScheduleExamComponent implements OnInit{
   scheduleForm: FormGroup;
   items: FormArray|undefined;
   inpFileArray:any[]=[];
+  examScheduleData:ExamScheduleDTO[]=[];
 constructor(private formBuilder: FormBuilder,private router:Router,private srv:DbAccessServiceService,private dlgSrv:ShowDialogService,private activeRoute:ActivatedRoute)
  {
     this.activeRoute.params.subscribe((prms)=>{
@@ -36,6 +38,7 @@ get getFromArray():FormArray|undefined
   ngOnInit(): void {
     
     this.PoulateForm();
+    this.PopulateScheduleData();
     }
 
   CreateInputRows(){
@@ -115,8 +118,12 @@ get getFromArray():FormArray|undefined
             console.log(requestDTO);
             this.srv.ScheduleExams(requestDTO).subscribe({
               next:(data)=>{
-                if(data.Status==1)
-                this.dlgSrv.ShowSnackAutoClose("Success in Creating Exam Schedule",4000);
+                //if(data.Status==1)
+                {
+                  this.PopulateScheduleData();
+                  this.scheduleForm.reset();
+                  this.dlgSrv.ShowSnackAutoClose("Success in Creating Exam Schedule",4000);
+                }                
               },
               error:(err)=>{
                 this.dlgSrv.ShowSnackAutoClose("Error in Creating Exam Schedule",4000);
@@ -151,6 +158,21 @@ get getFromArray():FormArray|undefined
         }
     });
   }
+PopulateScheduleData()
+{
+  this.srv.GetExamSchedule(this.selExamId).subscribe({
+    next:(data)=>{
+      this.examScheduleData=data.Data;
+    }
+  })
+}
+GetTimeFragment(inp:Date):string{
+  console.log(inp);
+return new Date(inp).toLocaleTimeString('en-US');
+}
 
-
+GetDateFragment(inp:Date):string{
+  console.log(inp);
+return new Date(inp).toDateString();
+}
 }

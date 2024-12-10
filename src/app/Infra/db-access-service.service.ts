@@ -219,6 +219,11 @@ ScheduleExams(inpData:NewExamScheduleRequestDTO):Observable<any>
     //return this.httpHelper.HttpRequest(frmData,'POST','ExamSchedule',hdr);
 }
 
+GetExamSchedule(examId:any):Observable<any>
+{
+  return this.httpHelper.HttpGet(`ExamSchedule/ByExamId/${examId}`);
+}
+
   /*GetCertificateById(id:any):Observable<CertificateDTO>
   {
     return this.httpHelper.HttpGet<CertificateDTO>(`Certificate/${id}`,undefined,undefined);

@@ -3,32 +3,100 @@
         <div class="shadow-lg p-3 mb-5 bg-white rounded">
             <div class="card">
                 <div class="card-header">
-                   Schedule Exams - {{selExamObj?.StartDate}}-{{selExamObj?.EndDate}}
+                   Schedule Exams - {{GetDateFragment(selExamObj?.StartDate)}}-{{GetDateFragment(selExamObj?.EndDate)}}
                 </div>
                 <div class="card-body">   
                     <form [formGroup]="scheduleForm">
                         <div  formArrayName="items" *ngFor="let frmArray of getFromArray?.controls; let i = index;">
-                            <div [formGroupName]="i"> 
+                            <div [formGroupName]="i">
                                 <div class="form-group">
-                                    <input type="checkbox" formControlName="choose"/>
-                                    <input formControlName="subject" class="from-control" readonly>                                
-                                    <input type="date" formControlName="date" class="from-control">
-                                
-                                    <input type="time" formControlName="time" class="from-control">
-                                
-                                    <input type="text" formControlName="notes" class="from-control">
+                                    <table style="width:100%">                                        
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" formControlName="choose"/>
+                                            </td>
+                                            <td>
+                                                <input formControlName="subject" class="from-control" readonly>
+                                            </td>
+                                            <td>
+                                                <input type="date" formControlName="date" class="from-control">
+                                            </td>
+                                            <td>
+                                                <input type="time" formControlName="time" class="from-control">
+                                            </td>
+                                            <td>
+                                                <input type="text" formControlName="notes" class="from-control">
+                                            </td>
+                                            <td>
+                                                <input type="file" formControlName="inpFile" class="from-control" (change)="selectFile($event,i)">
+                                            </td>
+                                        </tr>
+                                    </table>
                                     <input type="hidden" formControlName="subId" class="from-control">
-                                    <input type="file" formControlName="inpFile" class="from-control" (change)="selectFile($event,i)">
+                                    
                                 </div>
                             </div>
                         </div>                       
                         <div>
-                            <button class="btn btn-primary" (click)="AddSchedule()" >
+                            <button class="btn btn-primary form-control" (click)="AddSchedule()" >
                                     Add Schedule
                             </button>
                         </div>
                     </form>                 
                     
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row center">
+    <div class="col-sm-12">
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="card">
+                <div class="card-header">
+                   Exam Schedule:
+                </div>
+                <div class="card-body">   
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Subject
+                                </th>
+                                <th>
+                                    Date
+                                </th>
+                                <th>
+                                    Time
+                                </th>
+                                <th>
+                                    Notes
+                                </th>
+                                <th>
+                                    Actions
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let rec of examScheduleData">
+                                <td>
+                                    {{rec.SubjectName}}
+                                </td>
+                                <td>
+                                    {{GetDateFragment(rec.ExamDate)}}
+                                </td>
+                                <td>
+                                    {{GetTimeFragment(rec.ExamTime)}}
+                                </td>
+                                <td>
+                                    {{rec.Notes}}
+                                </td>
+                                <td>
+                                   
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table> 
                 </div>
             </div>
         </div>
