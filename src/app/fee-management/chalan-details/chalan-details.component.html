@@ -1,0 +1,86 @@
+
+<div class="row center">
+    <div class="col-sm-12">
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">            
+                <div class="card">
+                    <div class="card-header">
+                        Challan Details
+                    </div>
+                    <div class="card-body">
+                        <div class="row">                            
+                            <div class="col-sm-12">
+                                <form [formGroup]="fg">
+                                    <div class="form-group">
+                                        <label for="acdYear" class="form-control">Acd Year:</label>
+                                         <select class="form-select" formControlName="AcdYear" (change)="AcdYearChanged()">
+                                             <option value="">Select Year</option>
+                                             <option *ngFor="let ay of AcdYearList" [value]="ay.AcdYearId">{{ay.AcdYearText}}</option> 
+                                         </select>
+                                     </div>
+                                     <div class="form-group">
+                                        <button (click)="GetChalanData()" class="btn btn-primary">Choose Student</button>
+                                     </div>
+                                </form>                                
+                            </div>                            
+                        </div>
+                        
+                        <div class="row" *ngIf="chalanDetails!=undefined" id="print-div">
+                            <div class="col-sm-12">
+                                <table class="table table-striped" >
+                                    <tr>
+                                        <th>
+                                            Head Name    
+                                        </th>
+                                        <th>
+                                            Term No    
+                                        </th>
+                                        <th>
+                                            Tot Amt   
+                                        </th>
+                                        <th>
+                                            Concession   
+                                        </th>
+                                        <th>
+                                            Paid   
+                                        </th>
+                                        <th>
+                                            Due   
+                                        </th>
+                                        <th>
+                                            Due Month  
+                                        </th>
+                                    </tr>
+                                    <tr *ngFor="let rec of chalanDetails.info">
+                                        <td>
+                                            {{rec.HN}}
+                                        </td>
+                                        <td>
+                                            {{rec.TermNo}}
+                                        </td>
+                                        <td>
+                                            {{rec.TotAmt}}
+                                        </td>
+                                        <td>
+                                            {{rec.Concession}}
+                                        </td>
+                                        <td>
+                                            {{rec.Paid}}
+                                        </td>
+                                        <td>
+                                            {{rec.Due}}
+                                        </td>
+                                        <td>
+                                            {{rec.DueMon}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div>
+                            <button [useExistingCss]="true" printSectionId="print-div" ngxPrint>Print</button>
+                        </div>
+                    </div>
+                </div>            
+        </div>        
+    </div>
+</div>

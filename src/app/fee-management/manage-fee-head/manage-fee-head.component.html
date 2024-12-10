@@ -1,0 +1,43 @@
+<div class="row center">
+    <div class="col-sm-12">
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">            
+                <div class="card">
+                    <div class="card-header">
+                        Manage Fee Heads
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>
+                                    Head Name    
+                                </th>
+                                <th>
+                                    Head Type    
+                                </th>
+                                <th>
+                                   No Of Terms   
+                                </th>
+                                <th>
+                                    Action   
+                                </th>
+                            </tr>
+                            <tr *ngFor="let rec of FeeHeadDTOList">
+                                <td>
+                                    {{rec.FeeHeadName}}
+                                </td>
+                                <td>
+                                    {{GetFeeTypeText(rec.FeeType)}}
+                                </td>
+                                <td>
+                                    {{rec.Terms}}
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>            
+        </div>        
+        </div>
+</div>

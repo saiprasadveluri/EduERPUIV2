@@ -1,0 +1,36 @@
+<div class="row center">
+    <div class="col-sm-4">
+        <img class="img-fluid" src="../../assets/loginLeftImage.png" alt="Login"/>
+    </div>
+    <div class="col-sm-8">
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">            
+                <div class="card">
+                    <div class="card-header">
+                        Sign-In
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="fg">
+                            <div class="form-group">
+                                <label>User Email:</label>
+                                <input type="text" formControlName="ctrlEmail" name="ctrlUserName" class="form-control">
+                              
+                            </div>
+                            <div class="form-group">
+                                <label>Password:</label>
+                                <input type="password" formControlName="ctrlPassword" name="ctrlUserPwd" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <button (click)="LoginUser()" class="form-control btn btn-primary">Login</button>
+                                No Account with us? Click on: <button class="buttonAsLink" (click)="NavigateToRegister()">Register</button>
+                            </div>
+                            
+                            
+                        </form>
+                    </div>
+                </div>            
+        </div>        
+        </div>
+</div>
+
+
+

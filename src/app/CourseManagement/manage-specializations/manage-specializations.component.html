@@ -1,0 +1,58 @@
+
+<div class="row center">
+    <div class="col-sm-12">
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">            
+                <div class="card">
+                    <div class="card-header">
+                        <table style="width:100%">
+                            <tr>
+                                <td>
+                                    Manage Specializations
+                                </td>
+                                <td style="text-align:right;">
+                                    <a routerLink="/home/manageCourses">Back</a>
+                                </td>
+                            </tr>
+                        </table>                        
+                    </div>
+                    <div class="card-body">
+                        <table style="width:100%">
+                            <tr>
+                                <td>
+                                    <form [formGroup]="fg">
+                                        <div class="form-group">
+                                            <label for="SpecializationName" class="form-control">Cousre Name:</label>
+                                             <input type="text"  formControlName="SplName" name="SplName" class="form-control"/>
+                                         </div>
+                                         <div class="form-group">
+                                            <button class="btn btn-primary form-control" (click)="AddNewSpecialization()">Add</button>
+                                         </div>
+                                    </form>
+                                </td>                                
+                            </tr>
+                        </table>
+                        <table class="table table-striped">
+                            <tr>
+                                <th>
+                                    Specialization Name    
+                                </th>                               
+                                <th>
+                                    Actions  
+                                </th>
+                            </tr>
+                            <tr *ngFor="let rec of courseSpecializationArray">
+                                <td>
+                                    {{rec.SpecializationName}}
+                                </td>
+                                
+                                <td>
+                                    <button  class="btn btn-link" (click)="Delete(rec.CourseSpecializationId)">Delete</button>
+                                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>            
+        </div>        
+        </div>
+</div>

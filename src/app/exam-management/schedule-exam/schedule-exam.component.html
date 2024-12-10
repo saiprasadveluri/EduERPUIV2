@@ -1,0 +1,36 @@
+<div class="row center">
+    <div class="col-sm-12">
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="card">
+                <div class="card-header">
+                   Schedule Exams - {{selExamObj?.StartDate}}-{{selExamObj?.EndDate}}
+                </div>
+                <div class="card-body">   
+                    <form [formGroup]="scheduleForm">
+                        <div  formArrayName="items" *ngFor="let frmArray of getFromArray?.controls; let i = index;">
+                            <div [formGroupName]="i"> 
+                                <div class="form-group">
+                                    <input type="checkbox" formControlName="choose"/>
+                                    <input formControlName="subject" class="from-control" readonly>                                
+                                    <input type="date" formControlName="date" class="from-control">
+                                
+                                    <input type="time" formControlName="time" class="from-control">
+                                
+                                    <input type="text" formControlName="notes" class="from-control">
+                                    <input type="hidden" formControlName="subId" class="from-control">
+                                    <input type="file" formControlName="inpFile" class="from-control" (change)="selectFile($event,i)">
+                                </div>
+                            </div>
+                        </div>                       
+                        <div>
+                            <button class="btn btn-primary" (click)="AddSchedule()" >
+                                    Add Schedule
+                            </button>
+                        </div>
+                    </form>                 
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

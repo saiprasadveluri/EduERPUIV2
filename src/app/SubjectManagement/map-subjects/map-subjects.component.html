@@ -1,0 +1,40 @@
+<div class="row center">
+  <div class="col-sm-12">
+      <div class="shadow-lg p-3 mb-5 bg-white rounded">            
+              <div class="card">
+                  <div class="card-header">
+                      <table style="width:100%">
+                          <tr>
+                              <td>
+                                  Map Subjects
+                              </td>
+                              <td style="text-align:right;">
+                                  <a routerLink="/home">Back</a>
+                              </td>
+                          </tr>
+                      </table>                        
+                  </div>
+                  <div class="card-body">
+                    <button (click)="SelectCourse()" class="btn btn-primary form-control">
+                      Select Course
+                    </button>
+                    <form [formGroup]="fg" (ngSubmit)="submit()">
+
+                        <mat-grid-list cols="4" rowHeight="100px">
+                            <mat-grid-tile formArrayName="submaps" *ngFor="let order of subMapFormArray.controls; let i = index">
+                                <div class="left-content">                                
+                                <input type="checkbox" [formControlName]="i"/>      
+                                {{chkBoxData[i].subjectName}}
+                            </div>
+                            </mat-grid-tile>
+                          </mat-grid-list>
+
+                        
+                        <button class="btn btn-primary form-control">submit</button>
+                      </form>
+                  </div>
+              </div>
+                  </div>
+              </div>            
+      
+</div>

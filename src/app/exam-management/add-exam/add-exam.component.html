@@ -1,0 +1,62 @@
+<div class="row center">
+    <div class="col-sm-12">
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="card">
+                <div class="card-header">
+                    Select Course
+                </div>
+                <div class="card-body">                     
+                    <div>
+                        <button class="btn btn-primary" (click)="SelectCourseDetail()">
+                                Select Course
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row center">
+    <div class="col-sm-12">
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="card">
+                <div class="card-header">
+                    Select Exam Type
+                </div>
+                <div class="card-body">                     
+                    <div>
+                        <form [formGroup]="fgExam">
+                            <div class="form-group">
+                                <label for="ExamType" class="form-control">Exam Type:</label>
+                                 <select formControlName="ExamType" (change)="OnExamTypeChange()" class="form-select">
+                                    <option value="0">Select Exam Type</option>
+                                    <option *ngFor="let crs of examTypeArray" [value]="crs.ExamTypeId">
+                                            {{crs.ExamTypeName}}
+                                    </option>
+                                 </select>
+                             </div>
+                             <div class="form-group">
+                                <label for="ExamTitle" class="form-control">Exam Title:</label>
+                                 <input type="Text" name= "ExamTitle" formControlName="ExamTitle" class="form-control"/>
+                             </div>
+                             <div class="form-group">
+                                <label for="ExamStartDate" class="form-control">Exam Satrt Date:</label>
+                                 <input type="date" name="ExamStartDate" formControlName="ExamStartDate" class="form-control"/>
+                             </div>
+                             <div class="form-group">
+                                <label for="ExamEndDate" class="form-control">Exam End Date:</label>
+                                 <input type="date" name="ExamEndDate" formControlName="ExamEndDate" class="form-control"/>
+                             </div>
+                            <div>
+                                <button class="btn btn-primary" (click)="AddNewExam()" >
+                                        Add New Exam
+                                </button>
+                            </div>
+                        </form> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

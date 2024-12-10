@@ -1,0 +1,49 @@
+<div style="background-color: antiquewhite;">
+    <h2 mat-dialog-title>Select Course</h2>
+    <mat-dialog-content>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <form [formGroup]="fg">
+                        <div class="form-group">
+                            <label for="MainCourse" class="form-control">Main Course:</label>
+                             <select formControlName="MainCourse" (change)="OnMainCourseChange()" class="form-select">
+                                <option *ngFor="let crs of mainCoursesArray" [value]="crs.MainCourseId">
+                                        {{crs.CourseName}}
+                                </option>
+                             </select>
+                         </div>
+                         <div class="form-group">
+                            <label for="Specializations" class="form-control">Specializations:</label>
+                             <select formControlName="Specialization"  class="form-select">
+                                <option *ngFor="let spl of courseSpecializationArray" [value]="spl.CourseSpecializationId">
+                                        {{spl.SpecializationName}}
+                                </option>
+                             </select>
+                         </div> 
+                         <div class="form-group">
+                            <label for="Years" class="form-control">Year:</label>
+                             <select formControlName="Year"  class="form-select">
+                                <option *ngFor="let year of numberOfYearsArray" [value]="year+1">
+                                        {{year+1}}
+                                </option>
+                             </select>
+                         </div> 
+                         <div class="form-group">
+                            <label for="Term" class="form-control">Term:</label>
+                             <select formControlName="Term"  class="form-select">
+                                <option *ngFor="let term of numberOfTermsArray" [value]="term+1">
+                                        {{term+1}}
+                                </option>
+                             </select>
+                         </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions>        
+        <button mat-button (click)="OnClose()">Close</button>
+        <button mat-button (click)="OnCancel()">Cancel</button>
+    </mat-dialog-actions>
+</div>

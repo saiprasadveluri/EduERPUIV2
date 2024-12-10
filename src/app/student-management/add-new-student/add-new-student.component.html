@@ -1,0 +1,40 @@
+<div class="row center">
+    <div class="col-sm-12">
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">            
+                <div class="card">
+                    <div class="card-header">
+                        Add New Student
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="fg" (ngSubmit)="UploadData()">
+                            <div class="form-group">
+                               <select formControlName="AcdYear" name="AcdYear" class="form-control">
+                                <option value="">Select Acd Year</option>
+                                <option *ngFor="let m of AcdYearList" value="{{m.AcdYearId}}">
+                                    {{m.AcdYearText}}
+                                </option>
+                               </select>
+                            </div>   
+                            <div class="form-group">
+                                <input type="file" formControlName="InputFile" class="form-control" (change)="selectFile($event)"/>
+                             </div>                            
+                            <div class="form-group" style="padding: 10px;">
+                                <button (click)="GetCourse()"  class="form-control btn btn-primary">Get Course</button>
+                                
+                            </div>
+                            <div class="form-group" style="padding: 10px;;">
+                                <button  class="form-control btn btn-primary">Upload</button>
+                                
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>            
+        </div>        
+        </div>
+</div>
+
+
+
+
+

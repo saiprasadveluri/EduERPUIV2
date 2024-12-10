@@ -1,0 +1,87 @@
+<div class="row center">
+    <div class="col-sm-12">
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="card">
+                <div class="card-header">
+                    Main Course
+                </div>
+                <div class="card-body">   
+                    <form [formGroup]="fgMainCourse">
+                        <div class="form-group">
+                            <label for="MainCourse" class="form-control">Main Course:</label>
+                             <select formControlName="MainCourse" (change)="OnMainCourseChange()" class="form-select">
+                                <option value="0">Select Main Course</option>
+                                <option *ngFor="let crs of mainCoursesArray" [value]="crs.MainCourseId">
+                                        {{crs.CourseName}}
+                                </option>
+                             </select>
+                         </div>
+                        <div>
+                            <button class="btn btn-primary" (click)="SelectMainCourse()" [disabled]="selMainCourseId==undefined">
+                                    Select Main Course
+                            </button>
+                        </div>
+                    </form>                 
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row center">
+    <div class="col-sm-12">
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="card">
+                <div class="card-header">
+                    Add New Exam Type
+                </div>
+                <div class="card-body">    
+                    <form [formGroup]="fgAddExamType" >
+                        <div class="form-group">
+                            <label for="ExamTypeName" class="form-control">Exam Type Name:</label>
+                            <input type="text" formControlName="newExamTypeName" name="newExamTypeName" class="form-control">
+                         </div>
+                        <div>
+                            <button class="btn btn-primary" (click)="AddNewExamType()" [disabled]="selMainCourseId==undefined">
+                                    Add New Exam Type
+                            </button>
+                        </div>
+                    </form>            
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row center">
+    <div class="col-sm-12">
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">            
+                <div class="card">
+                    <div class="card-header">
+                        Manage Exam Types: <span>{{selMainCourseName}}</span>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>
+                                    Exam Type Name
+                                </th>
+                                
+                                <th>
+                                    Action   
+                                </th>
+                            </tr>
+                            <tr *ngFor="let rec of examTypeArray">
+                                <td>
+                                    {{rec.ExamTypeName}}
+                                </td>                               
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>            
+        </div>        
+        </div>
+</div>

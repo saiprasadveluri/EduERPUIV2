@@ -1,0 +1,33 @@
+<div class="row center">
+    <div class="col-sm-12">
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">            
+                <div class="card">
+                    <div class="card-header">
+                        Organization Selection
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="fg">
+                            <div class="form-group">
+                               <select formControlName="ctrlOrgSel" name="ctrlOrgSel" class="form-control" (change)="changeOrg($event)">
+                                <option value="">Select Organization</option>
+                                <option *ngFor="let m of usrOrgMapList" value="{{m.OrgId}}">
+                                    {{m.OrgName}}
+                                </option>
+                               </select>
+                            </div>                            
+                            <div class="form-group">
+                                <button (click)="GetAccessToken()" class="form-control btn btn-primary" [disabled]="selOrgId==''">Get Access Token</button>
+                                
+                            </div>
+                            
+                            
+                        </form>
+                    </div>
+                </div>            
+        </div>        
+        </div>
+</div>
+
+
+
+

@@ -1,0 +1,62 @@
+
+<div class="row center">
+    <div class="col-sm-12">
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">            
+                <div class="card">
+                    <div class="card-header">
+                        <table style="width:100%">
+                            <tr>
+                                <td>
+                                    Manage Courses
+                                </td>
+                                <td style="text-align:right;">
+                                    <a routerLink="/home/addCourse">Add New Course</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>
+                                    Course Name    
+                                </th>
+                                <th> 
+                                    Specializations Available   
+                                </th>
+                                <th>
+                                    DurationInYears   
+                                </th>
+                                <th>
+                                    Num OfTerms InYear  
+                                </th>
+                                <th>
+                                    Actions  
+                                </th>
+                            </tr>
+                            <tr *ngFor="let rec of mainCoursesArray">
+                                <td>
+                                    {{rec.CourseName}}
+                                </td>
+                                <td>
+                                    {{rec.IsSpecializationsAvailable==1?'YES':'NO'}}
+                                </td>
+                                <td>
+                                    {{rec.DurationInYears}}
+                                </td>
+                                <td>
+                                    {{rec.NumOfTermsInYear}}
+                                </td>
+                                <td>
+                                    <button  class="btn btn-link" (click)="Delete(rec.MainCourseId)">Delete</button>
+                                    <button *ngIf="rec.IsSpecializationsAvailable==1" class="btn btn-link" (click)="ManageSpl(rec.MainCourseId)">Manage Spl</button>
+                                    
+
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>            
+        </div>        
+        </div>
+</div>

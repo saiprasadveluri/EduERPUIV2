@@ -1,0 +1,77 @@
+<div class="row center">
+    <div class="col-sm-12">
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="card">
+                <div class="card-header">
+                   Manage Exams
+                </div>
+                <div class="card-body">                                           
+                    <div>
+                        <button class="btn btn-primary" (click)="SelectCourse()" >
+                                Select Course
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row center">
+    <div class="col-sm-12">
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="card">
+                <div class="card-header">
+                   Exam Data
+                </div>
+                <div class="card-body">                                           
+                    <div>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Title
+                                    </th>
+                                    <th>
+                                        Start date
+                                    </th>
+                                    <th>
+                                        End date
+                                    </th>
+                                    <th>
+                                        Exam Type
+                                    </th>
+                                    <th>
+                                        Actions
+                                    </th>
+                                </tr>                                
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let rec of examDTOArray">
+                                    <td>
+                                        {{rec.ExamTitle}}
+                                    </td>
+                                    <td>
+                                        {{ExtractDate(rec.StartDate)}}
+                                        
+                                    </td>
+                                    <td>
+                                        {{ExtractDate(rec.EndDate)}}
+                                    </td>
+                                    <td>
+                                        
+                                        {{rec.ExamType}}
+                                    </td>
+                                    <td>
+                                       <button class="btn-link link" (click)="ScheduleExam(rec.ExamId)">
+                                        Schedule
+                                       </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
