@@ -124,7 +124,8 @@ get getFromArray():FormArray|undefined
                 //if(data.Status==1)
                 {
                   this.PopulateScheduleData();
-                  this.scheduleForm.reset();
+                  //this.scheduleForm.reset();
+                  //this.PoulateForm();
                   this.dlgSrv.ShowSnackAutoClose("Success in Creating Exam Schedule",4000);
                 }                
               },
@@ -138,8 +139,7 @@ get getFromArray():FormArray|undefined
           }
         
         
-      }     
-      
+      }          
   }
   PoulateForm()
   {
@@ -190,6 +190,17 @@ ShowQuestionPapaer(schId:any)
       var streamValue=Base64Binary.decodeArrayBuffer(data.Data); 
       console.log(streamValue)
       this.QuestionPaperUrl = window.URL.createObjectURL(new Blob([streamValue],{ type: "application/octet-stream" }));
+    }
+  });
+}
+
+DeleteScheduleEntry(schId:any)
+{
+  
+  this.srv.DeleteExamScheduleEntry(schId).subscribe({
+    next:(data)=>{
+      this.dlgSrv.ShowSnackAutoClose("Success In deleting schedule entry",4000);
+      this.PopulateScheduleData();
     }
   });
 }

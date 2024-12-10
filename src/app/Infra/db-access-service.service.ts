@@ -229,6 +229,10 @@ GetExamQuestionPaper(schId:any):Observable<any>
   return this.httpHelper.HttpGet(`ExamSchedule/File/${schId}`);
 }
 
+DeleteExamScheduleEntry(schId:any):Observable<any>
+{
+  return this.httpHelper.HttpDelete(`ExamSchedule/${schId}`);
+}
   /*GetCertificateById(id:any):Observable<CertificateDTO>
   {
     return this.httpHelper.HttpGet<CertificateDTO>(`Certificate/${id}`,undefined,undefined);
