@@ -7,4 +7,6 @@ export interface SubjectDTO {
     SubjectName:string; 
     SubjectCode:string;
     Status:number;
+    IsLanguageSubject:number;
+    LanguageNumber?:number;
 }

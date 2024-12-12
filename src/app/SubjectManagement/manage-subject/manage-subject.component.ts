@@ -18,11 +18,15 @@ export class ManageSubjectComponent implements OnInit,OnDestroy {
   fg:FormGroup;
   ctrlSubName:FormControl=new FormControl('',Validators.required);
   ctrlSubCode:FormControl=new FormControl('',Validators.required);  
+  ctrlIsLang:FormControl=new FormControl('',Validators.required);
+  ctrlLangNumber:FormControl=new FormControl('',Validators.required);  
   constructor(private router:Router,private fb:FormBuilder,private srv:DbAccessServiceService,private dlgSrv:ShowDialogService)
   { 
     this.fg=new FormGroup({
       SubName:this.ctrlSubName,
-      SubCode:this.ctrlSubCode
+      SubCode:this.ctrlSubCode,
+      IsLang:this.ctrlIsLang,
+      LangNumber:this.ctrlLangNumber
     });
   }
   ngOnDestroy(): void {
@@ -54,10 +58,19 @@ export class ManageSubjectComponent implements OnInit,OnDestroy {
 
   AddNewSubject()
   {
+    var isLanguage:number=0;
+    var LanguageSeqNumber:number|undefined=0;
+    if(this.ctrlIsLang.value==true)
+      {
+        isLanguage=1;
+        LanguageSeqNumber=this.ctrlLangNumber.value;
+      }
     var subDTO:SubjectDTO={
       SubjectName:this.ctrlSubName.value,
       SubjectCode:this.ctrlSubCode.value,
-      Status:1
+      Status:1,
+      IsLanguageSubject:isLanguage,
+      LanguageNumber:LanguageSeqNumber
     };
     this.srv.AddSubject(subDTO).subscribe(
       {
