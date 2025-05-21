@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogConfig } from '@angular/material/d
 import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar';
 import { SelectCourseDetailDialogComponent } from '../Dialogs/select-course-detail-dialog/select-course-detail-dialog.component';
 import { SelectStudentsDialogComponent } from '../Dialogs/select-students-dialog/select-students-dialog.component';
+import { ShowPdfDocumentComponent } from '../Dialogs/show-pdf-document/show-pdf-document.component';
 
 @Injectable({
   providedIn: 'root'
@@ -54,6 +55,13 @@ export class ShowDialogService {
       callbackFn(result);
     });
   }
+ShowPDFViewerDialog()
+{
+  let ShowSelectCourseDialogRef = this.dialog.open(ShowPdfDocumentComponent, {
+      width: '1250px',            
+    });
+}
+
   /*ShowDeleteConfirmDialog(message:string,callBackfn:any)
   {
     var res:boolean=false;

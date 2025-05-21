@@ -49,7 +49,7 @@ const routes: Routes = [
       {path:'manageExamType',component:ManageExamTypeComponent},
       {path:'addExam',component:AddExamComponent},
       {path:'manageExam',component:ManageExamComponent},
-      {path:'scheduleExam/:examId',component:ScheduleExamComponent}
+      {path:'scheduleExam/:examId',component:ScheduleExamComponent},      
     ]
     }  
 ];

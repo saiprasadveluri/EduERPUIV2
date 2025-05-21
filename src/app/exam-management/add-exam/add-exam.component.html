@@ -22,11 +22,19 @@
         <div class="shadow-lg p-3 mb-5 bg-white rounded">
             <div class="card">
                 <div class="card-header">
-                    Select Exam Type
+                    Add Exam
                 </div>
                 <div class="card-body">                     
                     <div>
                         <form [formGroup]="fgExam">
+                            
+                            <div class="form-group">
+                                <label for="acdYear" class="form-control">Acd Year:</label>
+                                 <select class="form-select" formControlName="acdYear" (change)="AcdYearChanged()">
+                                     <option value="">Select Year</option>
+                                     <option *ngFor="let ay of acdYearArray" [value]="ay.AcdYearId">{{ay.AcdYearText}}</option> 
+                                 </select>
+                             </div>  
                             <div class="form-group">
                                 <label for="ExamType" class="form-control">Exam Type:</label>
                                  <select formControlName="ExamType" (change)="OnExamTypeChange()" class="form-select">

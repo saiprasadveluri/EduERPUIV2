@@ -4,6 +4,7 @@ import { DbAccessServiceService } from 'src/app/Infra/db-access-service.service'
 import { ShowDialogService } from 'src/app/Infra/show-dialog.service';
 import { CourseDetailDTO } from 'src/app/models/course-detail-dto';
 import { ExamDTO } from 'src/app/models/exam-dto';
+import { NewStudentExamScheduleMapRequestDTO } from 'src/app/models/new-student-exam-schedule-map-request-dto';
 
 @Component({
   selector: 'app-manage-exam',
@@ -68,5 +69,17 @@ export class ManageExamComponent implements OnInit{
   ScheduleExam(ExamId:any)
   {
     this.router.navigate(['home/scheduleExam',ExamId]);
+  }
+
+  ActivateExam(InpexamId:any)
+  {
+    var dto:NewStudentExamScheduleMapRequestDTO={
+      ExamId:InpexamId
+    }
+    this.srv.MapExamToStudents(dto).subscribe({
+      next:()=>{
+        this.dlgSrv.ShowSnackAutoClose("Successing in Activating Exam",4000)
+      }
+    });
   }
 }

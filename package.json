@@ -30,6 +30,8 @@
     "ng2-pdf-viewer": "^10.4.0",
     "ngx-print": "^1.5.1",
     "object-to-formdata": "^4.5.1",
+    "pdf-viewer": "^0.8.1",
+    "pdfjs-dist": "^5.2.133",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"

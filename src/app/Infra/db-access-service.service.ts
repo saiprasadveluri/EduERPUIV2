@@ -21,6 +21,7 @@ import { BulkQuestionUploadDTO } from '../models/bulk-question-upload-dto';
 import { ExamDTO } from '../models/exam-dto';
 import { NewExamScheduleRequestDTO } from '../models/new-exam-schedule-request-dto';
 import { serialize } from 'object-to-formdata';
+import { NewStudentExamScheduleMapRequestDTO } from '../models/new-student-exam-schedule-map-request-dto';
 @Injectable({
   providedIn: 'root'
 })
@@ -232,6 +233,11 @@ GetExamQuestionPaper(schId:any):Observable<any>
 DeleteExamScheduleEntry(schId:any):Observable<any>
 {
   return this.httpHelper.HttpDelete(`ExamSchedule/${schId}`);
+}
+
+MapExamToStudents(inp:NewStudentExamScheduleMapRequestDTO):Observable<any>
+{
+  return this.httpHelper.HttpPost('StudentExamSchedule',inp);
 }
   /*GetCertificateById(id:any):Observable<CertificateDTO>
   {

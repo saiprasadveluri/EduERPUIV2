@@ -12,4 +12,5 @@ export interface ExamDTO {
          StartDate:any;        
         
          EndDate:any; 
+         AcdYearId:any;
 }

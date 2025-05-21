@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DbAccessServiceService } from 'src/app/Infra/db-access-service.service';
 import { ShowDialogService } from 'src/app/Infra/show-dialog.service';
+import { AcdYearDTO } from 'src/app/models/acd-year-dto';
 import { CourseDetailDTO } from 'src/app/models/course-detail-dto';
 import { CourseSpecializationDTO } from 'src/app/models/course-specialization-dto';
 import { ExamDTO } from 'src/app/models/exam-dto';
@@ -13,24 +14,31 @@ import { ExamTypeDTO } from 'src/app/models/exam-type-dto';
   templateUrl: './add-exam.component.html',
   styleUrls: ['./add-exam.component.css']
 })
-export class AddExamComponent {
+export class AddExamComponent implements OnInit{
   SelMainCourseId:any;
   selCourseDetId:any;
   selExamTypeId:any;
+  selAcdYearId:any;
   examTypeArray:ExamTypeDTO[]=[];
+  acdYearArray:AcdYearDTO[]=[];
   fgExam:FormGroup;
   ExamTypeCtrl:FormControl=new FormControl('',[Validators.required]);
   ExamTitleCtrl:FormControl=new FormControl('',[Validators.required]);
   ExamStartDateCtrl:FormControl=new FormControl('',[Validators.required]);
   ExamEndDateCtrl:FormControl=new FormControl('',[Validators.required]);
+  AcdYearCtrl:FormControl=new FormControl('',[Validators.required]);
   constructor(private router:Router,private srv:DbAccessServiceService,private dlgSrv:ShowDialogService)
   {
     this.fgExam=new FormGroup({
       ExamType:this.ExamTypeCtrl,
       ExamTitle:this.ExamTitleCtrl,
       ExamStartDate:this.ExamStartDateCtrl,
-      ExamEndDate:this.ExamEndDateCtrl
+      ExamEndDate:this.ExamEndDateCtrl,
+      acdYear:this.AcdYearCtrl
     });
+  }
+  ngOnInit(): void {
+    this.PopulateAcdYears();
   }
 
   OnExamTypeChange()
@@ -48,6 +56,20 @@ export class AddExamComponent {
                 this.examTypeArray=data.Data;
           }
       });
+  }
+
+  PopulateAcdYears()
+  {
+    this.srv.GetAllAcdYears().subscribe({
+      next:(data)=>{
+        this.acdYearArray=data.Data;
+      }
+    })
+  }
+
+  AcdYearChanged()
+  {
+      this.selAcdYearId=this.AcdYearCtrl.value;
   }
   
   SelectCourseDetail()
@@ -80,7 +102,8 @@ export class AddExamComponent {
     ExamTitle:this.ExamTitleCtrl.value,
     StartDate:this.ExamStartDateCtrl.value,
     EndDate:this.ExamEndDateCtrl.value,
-    ExamTypeId:this.ExamTypeCtrl.value
+    ExamTypeId:this.ExamTypeCtrl.value,
+    AcdYearId:this.AcdYearCtrl.value
   };
   console.log(dto);
   this.srv.AddExam(dto).subscribe({

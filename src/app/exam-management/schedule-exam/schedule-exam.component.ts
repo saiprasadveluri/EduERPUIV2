@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DbAccessServiceService } from 'src/app/Infra/db-access-service.service';
 import { ShowDialogService } from 'src/app/Infra/show-dialog.service';
@@ -24,7 +25,7 @@ export class ScheduleExamComponent implements OnInit{
   inpFileArray:any[]=[];
   displayPaper:boolean=false;
   examScheduleData:ExamScheduleDTO[]=[];
-  QuestionPaperUrl:string="";
+  QuestionPaperUrl:any="";
 constructor(private formBuilder: FormBuilder,private router:Router,private srv:DbAccessServiceService,private dlgSrv:ShowDialogService,private activeRoute:ActivatedRoute)
  {
     this.activeRoute.params.subscribe((prms)=>{
@@ -189,9 +190,13 @@ ShowQuestionPapaer(schId:any)
       //console.log(data.Data)
       var streamValue=Base64Binary.decodeArrayBuffer(data.Data); 
       console.log(streamValue)
-      this.QuestionPaperUrl = window.URL.createObjectURL(new Blob([streamValue],{ type: "application/octet-stream" }));
-    }
-  });
+      this.QuestionPaperUrl = window.URL.createObjectURL(new Blob([streamValue],{ type: "application/pdf" }));
+      console.log(this.QuestionPaperUrl);
+      sessionStorage.setItem("QPAPER",this.QuestionPaperUrl);
+      this.dlgSrv.ShowPDFViewerDialog();
+  }});
+
+    
 }
 
 DeleteScheduleEntry(schId:any)
