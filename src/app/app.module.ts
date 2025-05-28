@@ -37,6 +37,13 @@ import { AddExamComponent } from './exam-management/add-exam/add-exam.component'
 import { ScheduleExamComponent } from './exam-management/schedule-exam/schedule-exam.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ShowPdfDocumentComponent } from './Dialogs/show-pdf-document/show-pdf-document.component';
+import { StudentHomeComponent } from './student-management/student-home/student-home.component';
+import { ExamSchStudentRoleComponent } from './student-management/exam-sch-student-role/exam-sch-student-role.component';
+import { NewUserCreationComponent } from './new-user-creation/new-user-creation.component';
+import { OrgnizationFeatureSubscriptionComponent } from './orgnization-feature-subscription/orgnization-feature-subscription.component';
+import { ListOrganizationsComponent } from './list-organizations/list-organizations.component';
+import { MatListModule, MatSelectionList } from '@angular/material/list';
+import { SysAdminHomeComponent } from './sys-admin-home/sys-admin-home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +68,13 @@ import { ShowPdfDocumentComponent } from './Dialogs/show-pdf-document/show-pdf-d
     ManageExamScheduleComponent,
     AddExamComponent,
     ScheduleExamComponent,
-    ShowPdfDocumentComponent
+    ShowPdfDocumentComponent,
+    StudentHomeComponent,
+    ExamSchStudentRoleComponent,
+    NewUserCreationComponent,
+    OrgnizationFeatureSubscriptionComponent,
+    ListOrganizationsComponent,
+    SysAdminHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -76,6 +89,7 @@ import { ShowPdfDocumentComponent } from './Dialogs/show-pdf-document/show-pdf-d
     MatDialogModule,
     NgxPrintModule,
     MatIconModule,
+    MatListModule,
     MatGridListModule,
     DataTablesModule,
     PdfViewerModule

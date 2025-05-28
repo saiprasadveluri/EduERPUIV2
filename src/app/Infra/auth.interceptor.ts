@@ -29,7 +29,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
           }
           else if(err.error.Message!=undefined)
           {
-            console.log('Server processing error');
+            console.log('Server processing error:'+err.error.Message);
             dlgSrv.ShowSnackAutoClose("Error In Operation..."+err.error.Message,4000);
           }
           else

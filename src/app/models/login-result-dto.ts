@@ -5,4 +5,5 @@ export interface LoginResultDTO {
     UserEmail:string;
     UserOrgMapInfos:UserOrgMapDTO[]
     JwtToken:string; 
+    IsSysAdmin:boolean;
 }

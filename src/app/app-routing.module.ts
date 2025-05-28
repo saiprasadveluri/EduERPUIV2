@@ -20,15 +20,22 @@ import { ManageExamTypeComponent } from './exam-management/manage-exam-type/mana
 import { AddExamComponent } from './exam-management/add-exam/add-exam.component';
 import { ManageExamComponent } from './exam-management/manage-exam/manage-exam.component';
 import { ScheduleExamComponent } from './exam-management/schedule-exam/schedule-exam.component';
+import { StudentHomeComponent } from './student-management/student-home/student-home.component';
+import { OrgnizationFeatureSubscriptionComponent } from './orgnization-feature-subscription/orgnization-feature-subscription.component';
+import { SysAdminHomeComponent } from './sys-admin-home/sys-admin-home.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'} ,
   {path:'login',component:AppLoginComponent},
   {path:'orgSel',component:OrgSelectionComponent,canActivate:[loginGuard]},
-  
-  {path:'home',component:HomeComponent,canActivate:[accessGuard],
-    children:[ 
-      
+  {path:'studentHome',component:StudentHomeComponent},
+  {path:'sysadminhome',component:SysAdminHomeComponent,
+    children:[
+      {path:'orgnizationFeatureSubscription',component:OrgnizationFeatureSubscriptionComponent} 
+    ]},
+  {path:'home',component:HomeComponent,
+
+    children:[       
       {path:'manageFeeHead',component:ManageFeeHeadComponent,canActivate:[featureGuard],
       data:{roledata:[{feature:RoleConsts.FEE_MANAGEMENT_FEATURE,role:RoleConsts.ROLE_ADMIN}]}
       },
@@ -49,7 +56,8 @@ const routes: Routes = [
       {path:'manageExamType',component:ManageExamTypeComponent},
       {path:'addExam',component:AddExamComponent},
       {path:'manageExam',component:ManageExamComponent},
-      {path:'scheduleExam/:examId',component:ScheduleExamComponent},      
+      {path:'scheduleExam/:examId',component:ScheduleExamComponent},  
+         
     ]
     }  
 ];

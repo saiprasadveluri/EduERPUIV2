@@ -1,0 +1,14 @@
+<div class="row">
+    <div class = "col-lg-12">
+        <span>Organization List:</span>
+    </div>
+</div>
+<div class="row">
+    <div class = "col-lg-12">
+        <select id="orgList" name="orgList" (change)="OnChangeOrganization($event)">
+            <option *ngFor="let org of OrgList" value="org.OrgId">
+                {{org.OrgName}}
+            </option>
+        </select>
+    </div>
+</div>

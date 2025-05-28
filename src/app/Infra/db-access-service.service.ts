@@ -22,6 +22,8 @@ import { ExamDTO } from '../models/exam-dto';
 import { NewExamScheduleRequestDTO } from '../models/new-exam-schedule-request-dto';
 import { serialize } from 'object-to-formdata';
 import { NewStudentExamScheduleMapRequestDTO } from '../models/new-student-exam-schedule-map-request-dto';
+import { ModuleFeatureDTO } from '../models/ModuleFeatureDTO';
+import { OrganizationDTO } from '../models/OrganizationDTO';
 @Injectable({
   providedIn: 'root'
 })
@@ -239,6 +241,21 @@ MapExamToStudents(inp:NewStudentExamScheduleMapRequestDTO):Observable<any>
 {
   return this.httpHelper.HttpPost('StudentExamSchedule',inp);
 }
+GetAllFeaturesByModule(ModuleID:any):Observable<any>
+{
+  return this.httpHelper.HttpGet(`ModuleFeature/Module/${ModuleID}`);
+}
+
+GetOrganizationById(OrgId:any):Observable<any>
+{
+   return this.httpHelper.HttpGet(`Organization/${OrgId}`);
+}
+
+GetAllOrganizations():Observable<any>
+{
+   return this.httpHelper.HttpGet(`Organization`);
+}
+
   /*GetCertificateById(id:any):Observable<CertificateDTO>
   {
     return this.httpHelper.HttpGet<CertificateDTO>(`Certificate/${id}`,undefined,undefined);
