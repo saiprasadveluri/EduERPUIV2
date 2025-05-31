@@ -24,6 +24,7 @@ import { serialize } from 'object-to-formdata';
 import { NewStudentExamScheduleMapRequestDTO } from '../models/new-student-exam-schedule-map-request-dto';
 import { ModuleFeatureDTO } from '../models/ModuleFeatureDTO';
 import { OrganizationDTO } from '../models/OrganizationDTO';
+import { OrgnizationFeatureSubscriptionDTO } from '../models/OrgnizationFeatureSubscriptionDTO';
 @Injectable({
   providedIn: 'root'
 })
@@ -256,6 +257,20 @@ GetAllOrganizations():Observable<any>
    return this.httpHelper.HttpGet(`Organization`);
 }
 
+GetAllFeaturesByOrganization(OrgId:any):Observable<any>
+{
+  return this.httpHelper.HttpGet(`OrgnizationFeatureSubscription/${OrgId}`);
+}
+
+AddFeaturesToOrganization(featureDtoArray:OrgnizationFeatureSubscriptionDTO[]):Observable<any>
+{
+  return this.httpHelper.HttpPost(`OrgnizationFeatureSubscription`,featureDtoArray);
+}
+
+RemoveFeatureFromOrganization(strDta:string):Observable<any>
+{
+  return this.httpHelper.HttpDelete("OrgnizationFeatureSubscription/"+strDta);
+}
   /*GetCertificateById(id:any):Observable<CertificateDTO>
   {
     return this.httpHelper.HttpGet<CertificateDTO>(`Certificate/${id}`,undefined,undefined);

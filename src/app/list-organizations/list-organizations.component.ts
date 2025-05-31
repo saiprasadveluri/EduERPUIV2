@@ -26,7 +26,7 @@ ngOnInit(): void {
       if(this.OrgList.length>0)
       {
         console.log(this.OrgList[0])
-        this.OrganizationSelectionChanged.emit(this.OrgList[0].OrgModuleType);
+        this.OrganizationSelectionChanged.emit(this.OrgList[0].OrgId);
         console.log('evt emitted')
       }
     }
