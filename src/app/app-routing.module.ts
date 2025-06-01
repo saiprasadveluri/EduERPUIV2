@@ -23,6 +23,7 @@ import { ScheduleExamComponent } from './exam-management/schedule-exam/schedule-
 import { StudentHomeComponent } from './student-management/student-home/student-home.component';
 import { OrgnizationFeatureSubscriptionComponent } from './orgnization-feature-subscription/orgnization-feature-subscription.component';
 import { SysAdminHomeComponent } from './sys-admin-home/sys-admin-home.component';
+import { NewAdminCreationComponent } from './new-admin-creation/new-admin-creation.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'} ,
@@ -31,7 +32,9 @@ const routes: Routes = [
   {path:'studentHome',component:StudentHomeComponent},
   {path:'sysadminhome',component:SysAdminHomeComponent,
     children:[
-      {path:'orgnizationFeatureSubscription',component:OrgnizationFeatureSubscriptionComponent} 
+      {path:'orgnizationFeatureSubscription',component:OrgnizationFeatureSubscriptionComponent},
+      {path:'addNewAdmin',component:NewAdminCreationComponent} 
+    
     ]},
   {path:'home',component:HomeComponent,
 

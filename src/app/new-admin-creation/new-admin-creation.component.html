@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-lg-12">
+        <app-list-organizations (OrganizationSelectionChanged)="ChangeOrganization($event)"></app-list-organizations>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <form [formGroup]="frm" (ngSubmit)="AddNewAdmin()">
+          <div>
+            <input type="email" formControlName="Email"/>
+          </div>
+          <div>
+            <input type="text" formControlName="DisplayName"/>
+          </div>
+           <div>
+            <button>Add Admin</button>
+          </div>
+        </form>
+    </div>
+</div>

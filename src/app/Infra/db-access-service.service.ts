@@ -25,6 +25,8 @@ import { NewStudentExamScheduleMapRequestDTO } from '../models/new-student-exam-
 import { ModuleFeatureDTO } from '../models/ModuleFeatureDTO';
 import { OrganizationDTO } from '../models/OrganizationDTO';
 import { OrgnizationFeatureSubscriptionDTO } from '../models/OrgnizationFeatureSubscriptionDTO';
+import { UserOrgMapDTO } from '../models/user-org-map-dto';
+import { UserInfoDTO } from '../models/user-Info-dto';
 @Injectable({
   providedIn: 'root'
 })
@@ -270,6 +272,11 @@ AddFeaturesToOrganization(featureDtoArray:OrgnizationFeatureSubscriptionDTO[]):O
 RemoveFeatureFromOrganization(strDta:string):Observable<any>
 {
   return this.httpHelper.HttpDelete("OrgnizationFeatureSubscription/"+strDta);
+}
+
+AddOrganizationAdmin(dto:UserInfoDTO):Observable<any>
+{
+  return this.httpHelper.HttpPost("UserInfo",dto);
 }
   /*GetCertificateById(id:any):Observable<CertificateDTO>
   {

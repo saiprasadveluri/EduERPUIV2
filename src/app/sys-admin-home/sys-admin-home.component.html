@@ -7,88 +7,29 @@
                 </a>
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     <li class="nav-item">
-                        <a routerLink="/home" class="nav-link align-middle px-0">
+                        <a routerLink="/sysadminhome" class="nav-link align-middle px-0">
                             <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#submenuOF" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Map Organization Features</span> </a>
-                        <ul class="collapse show nav flex-column ms-1" id="submenuOF" data-bs-parent="#submenuOF">
+                        <ul class="collapse show nav flex-column ms-1"  data-bs-parent="#submenuOF">
                             <li class="w-100">
                             <a routerLink="orgnizationFeatureSubscription" class="nav-link px-0"> <span class="d-none d-sm-inline"> Manage </span></a>
                             </li>                            
                         </ul>
-                    </li>
-                    <li>
-                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Course Management</span> </a>
-                        <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                    </li>  
+                    
+                     <li class="nav-item">
+                        <a href="#submenuOF" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">User Management</span> </a>
+                        <ul class="collapse show nav flex-column ms-1"  data-bs-parent="#submenuOF">
                             <li class="w-100">
-                            <a routerLink="manageCourses" class="nav-link px-0"> <span class="d-none d-sm-inline"> Manage Course</span></a>
-                            </li>
-                            <li>
-                                <a routerLink="addCourse" class="nav-link px-0"> <span class="d-none d-sm-inline"> Add Course</span></a>
-                            </li>
-                        </ul>
-                    </li>                    
-                    <li>
-                        <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                            <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Student Management</span></a>
-                        <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <a routerLink="addBulkStudent" class="nav-link px-0"> <span class="d-none d-sm-inline">Bulk Add Student</span></a>
-                            </li>
-                            
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Fee Management</span> </a>
-                            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <a routerLink="manageFeeHead" class="nav-link px-0"> <span class="d-none d-sm-inline">Manage Fee Heads</span></a>
-                            </li>
-                            <li>
-                                <a routerLink="addFeeHead" class="nav-link px-0"> <span class="d-none d-sm-inline">Add Fee Head</span></a>
-                            </li>
-                            <li>
-                                <a routerLink="addFee" class="nav-link px-0"> <span class="d-none d-sm-inline">Add Fee</span></a>
-                            </li>
-                            <li>
-                                <a routerLink="getStudentChalan" class="nav-link px-0"> <span class="d-none d-sm-inline">Chalan Details</span></a>
-                            </li>
-                        </ul>
-                    </li>     
-                    <li>
-                        <a href="#submenu4" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Subject Management</span> </a>
-                            <ul class="collapse nav flex-column ms-1" id="submenu4" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <a routerLink="manageSubjects" class="nav-link px-0"> <span class="d-none d-sm-inline">Manage Subjects</span></a>
-                            </li>
-                            <li class="w-100">
-                                <a routerLink="manageSubjectMaps" class="nav-link px-0"> <span class="d-none d-sm-inline">Manage Course Subjects</span></a>
-                            </li>
-                            
+                            <a routerLink="addNewAdmin" class="nav-link px-0"> <span class="d-none d-sm-inline"> Manage Admins </span></a>
+                            </li>                            
                         </ul>
                     </li> 
-                    <li>
-                        <a href="#submenu5" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Exam Management</span> </a>
-                            <ul class="collapse nav flex-column ms-1" id="submenu5" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <a routerLink="manageExamType" class="nav-link px-0"> <span class="d-none d-sm-inline">Manage Exam Types</span></a>
-                            </li>
-                            <li class="w-100">
-                                <a routerLink="addExam" class="nav-link px-0"> <span class="d-none d-sm-inline">Add Exam</span></a>
-                            </li>
-                            <li class="w-100">
-                                <a routerLink="manageExam" class="nav-link px-0"> <span class="d-none d-sm-inline">Manage Exam</span></a>
-                            </li>
-                        </ul>
-                    </li>  
-                                   
                 </ul>
                 <hr>
                 <div class="dropdown pb-4">

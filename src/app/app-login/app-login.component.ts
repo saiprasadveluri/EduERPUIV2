@@ -39,17 +39,18 @@ export class AppLoginComponent implements OnInit {
     this.srv.VerifyLogin(loginData)
     .subscribe({next:(data)=>{
       console.log(data);
-      if(data.Data.IsSysAdmin==true)
+      if(data.Data.IsSysAdmin==1)
       {
-        localStorage.setItem("AccessToken",data.JwtToken);
+        localStorage.setItem("AccessToken",data.Data.JwtToken);
         this.router.navigate(['sysadminhome']);
+        return;
       }
       this.userOrgMapInfoList=data.Data.UserOrgMapInfos;
       console.log(this.userOrgMapInfoList);
       
       localStorage.setItem("UserOrgMap",JSON.stringify(this.userOrgMapInfoList));      
       localStorage.setItem("AuthToken",data.Data.JwtToken);
-      if(this.userOrgMapInfoList.length==1)
+      /*if(this.userOrgMapInfoList.length==1)
       {
         localStorage.setItem("SelOrgId",this.userOrgMapInfoList[0].OrgId);
         this.GetAccessToken(this.userOrgMapInfoList[0].OrgId);        
@@ -58,7 +59,9 @@ export class AppLoginComponent implements OnInit {
       else
       {
       this.router.navigate(['orgSel']);  
-      }    
+      }  */
+       //localStorage.setItem("SelOrgId",this.userOrgMapInfoList[0].OrgId);
+       this.router.navigate(['orgSel']); 
     },
     error:(err)=>{
           this.dlgSrv.ShowSnackAutoClose("Error In Authentication",5000);

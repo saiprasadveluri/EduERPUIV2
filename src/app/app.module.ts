@@ -44,6 +44,7 @@ import { OrgnizationFeatureSubscriptionComponent } from './orgnization-feature-s
 import { ListOrganizationsComponent } from './list-organizations/list-organizations.component';
 import { MatListModule, MatSelectionList } from '@angular/material/list';
 import { SysAdminHomeComponent } from './sys-admin-home/sys-admin-home.component';
+import { NewAdminCreationComponent } from './new-admin-creation/new-admin-creation.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,7 +75,8 @@ import { SysAdminHomeComponent } from './sys-admin-home/sys-admin-home.component
     NewUserCreationComponent,
     OrgnizationFeatureSubscriptionComponent,
     ListOrganizationsComponent,
-    SysAdminHomeComponent
+    SysAdminHomeComponent,
+    NewAdminCreationComponent
   ],
   imports: [
     BrowserModule,

@@ -21,13 +21,10 @@ this.OrganizationSelectionChanged=new EventEmitter<string>();
 ngOnInit(): void {
   this.srv.GetAllOrganizations().subscribe({
     next:(data)=>{
-      this.OrgList=data.Data;
-      console.log("Init:"+this.OrgList)
+      this.OrgList=data.Data;      
       if(this.OrgList.length>0)
-      {
-        console.log(this.OrgList[0])
-        this.OrganizationSelectionChanged.emit(this.OrgList[0].OrgId);
-        console.log('evt emitted')
+      {        
+        this.OrganizationSelectionChanged.emit(this.OrgList[0].OrgId);        
       }
     }
   })
