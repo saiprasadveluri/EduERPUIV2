@@ -37,6 +37,7 @@ export class AuthService {
     if(localStorage.getItem("AccessToken")!=null)
     {
       const token:string|null=localStorage.getItem("AccessToken");
+      console.log(token)
       var ParsedJson=JwtDecoder.DecodeToken(token);
       return ParsedJson;      
     }
@@ -47,6 +48,10 @@ export class AuthService {
   VerifyAccess(reqFeatureRoleArr:any[]):boolean
   {
     var accessData=this.GetUserFeatureRoleMaps();
+    if(accessData.IsOrgAdmin)
+    {
+      return true;
+    }
     if(accessData!=null)
     {
       var featureRoleMapArray=JSON.parse(accessData.FeatureRoleData);      

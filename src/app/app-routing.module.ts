@@ -24,6 +24,7 @@ import { StudentHomeComponent } from './student-management/student-home/student-
 import { OrgnizationFeatureSubscriptionComponent } from './orgnization-feature-subscription/orgnization-feature-subscription.component';
 import { SysAdminHomeComponent } from './sys-admin-home/sys-admin-home.component';
 import { NewAdminCreationComponent } from './new-admin-creation/new-admin-creation.component';
+import { GenerateBulkChalansComponent } from './fee-management/generate-bulk-chalans/generate-bulk-chalans.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'} ,
@@ -38,7 +39,8 @@ const routes: Routes = [
     ]},
   {path:'home',component:HomeComponent,
 
-    children:[       
+    children:[     
+      {path:'generateBulkCahalan',component:GenerateBulkChalansComponent},  
       {path:'manageFeeHead',component:ManageFeeHeadComponent,canActivate:[featureGuard],
       data:{roledata:[{feature:RoleConsts.FEE_MANAGEMENT_FEATURE,role:RoleConsts.ROLE_ADMIN}]}
       },

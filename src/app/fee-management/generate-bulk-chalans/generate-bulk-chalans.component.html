@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="card">
+                <div class="card-header">
+                        Bulk Chalans
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="fg" >
+                        <div class="form-group">
+                               <select formControlName="AcdYear" name="AcdYear" class="form-control">
+                                <option value="">Select Acd Year</option>
+                                <option *ngFor="let m of AcdYearList" value="{{m.AcdYearId}}">
+                                    {{m.AcdYearText}}
+                                </option>
+                               </select>
+                            </div> 
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button (click)="GetCourse()">Select Course</button>
+<button (click)="GenerateClassChalans()">Generate Chalans</button>

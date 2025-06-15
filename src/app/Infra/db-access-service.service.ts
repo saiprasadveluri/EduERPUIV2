@@ -27,6 +27,7 @@ import { OrganizationDTO } from '../models/OrganizationDTO';
 import { OrgnizationFeatureSubscriptionDTO } from '../models/OrgnizationFeatureSubscriptionDTO';
 import { UserOrgMapDTO } from '../models/user-org-map-dto';
 import { UserInfoDTO } from '../models/user-Info-dto';
+import { GenerateClassChalansDTO } from '../models/GenerateClassChalansDTO';
 @Injectable({
   providedIn: 'root'
 })
@@ -277,6 +278,11 @@ RemoveFeatureFromOrganization(strDta:string):Observable<any>
 AddOrganizationAdmin(dto:UserInfoDTO):Observable<any>
 {
   return this.httpHelper.HttpPost("UserInfo",dto);
+}
+
+GenerateClassChalans(dto:GenerateClassChalansDTO):Observable<any>
+{
+return this.httpHelper.HttpPost("Chelan",dto);
 }
   /*GetCertificateById(id:any):Observable<CertificateDTO>
   {

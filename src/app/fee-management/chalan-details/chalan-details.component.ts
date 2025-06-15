@@ -52,13 +52,15 @@ export class ChalanDetailsComponent implements OnInit {
         this.srv.GetStudentChllans(this.selStudentmapId).subscribe({
             next:(data)=>{
               var chlnArr=data.Data;
-              if(chlnArr.length==1)
+              console.log(chlnArr)
+              if(chlnArr.length>0)
               {
-                let chlnId=(chlnArr[0] as ChalanDTO).ChlnId;
+                let chlnId:any=chlnArr[0].ChlnId;
                 this.srv.GetChallanDetails(chlnId).subscribe(
                   {
                     next:(data)=>{
                         this.chalanDetails=data.Data;
+                        let ChlnId=this.chalanDetails.ChlnId;
                         console.log(this.chalanDetails)
                     }
                   }

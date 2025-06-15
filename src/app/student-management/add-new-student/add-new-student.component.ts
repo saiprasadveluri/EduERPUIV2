@@ -100,6 +100,7 @@ export class AddNewStudentComponent implements OnInit {
         },
         complete:()=>{
           this.ctrlInputFile.reset();
+          console.log('complete')
         }
     });
   }
