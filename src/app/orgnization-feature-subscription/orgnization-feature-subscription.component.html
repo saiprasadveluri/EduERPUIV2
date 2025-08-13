@@ -1,14 +1,14 @@
-<div class="row">
+<div class="row" >
     <div class="col-lg-12">    
         <app-list-organizations (OrganizationSelectionChanged)="ChangeOrgnanization($event)"></app-list-organizations>
     </div>
 </div>
-<div class="row>">
-    Avialable Features
+<div class="row" style="background-color:blue;color:white;">
+    <span style="font-size: larger;">Avialable Features</span>
 </div>
-<div class="row>">
+<div class="row">
     <div class="col-lg-12">        
-            <mat-selection-list (selectionChange)="onFeaturesSelectionChange($event)">
+            <mat-selection-list (selectionChange)="onFeaturesSelectionChange($event)" class="form-selection">
                 <mat-list-option *ngFor="let item of NonSubscribedFeatures" [value]="item.featureId">
                     {{ item.featureName }}
                 </mat-list-option>
@@ -17,15 +17,15 @@
 </div>
 <div class="row">
         <div class="col-lg-12">
-            <button (click)="OnSubscribeFeatures()">
+            <button (click)="OnSubscribeFeatures()" class="btn btn-primary form-control">
                 Subscribe Features
             </button>
         </div>
 </div>
-<div class="row>">
-    Subscribed Features
+<div class="row" style="background-color:blue;color:white;">
+    <span style="font-size: larger;">Subscribed Features</span>
 </div>
-<div class="row>">
+<div class="row">
     <div class="col-lg-12">        
             <mat-selection-list (selectionChange)="onFeaturesUnSelectionChange($event)">
                 <mat-list-option *ngFor="let item of SubscribedFeatures" [value]="item.featureId">
@@ -36,7 +36,7 @@
 </div>
 <div class="row">
         <div class="col-lg-12">
-            <button (click)="OnUnsubscribeFeatures()">
+            <button (click)="OnUnsubscribeFeatures()" class="btn btn-primary form-control">
                 UnSubscribe Features
             </button>
         </div>
