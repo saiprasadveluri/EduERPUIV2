@@ -22,6 +22,7 @@ export class ManageCourseComponent implements OnInit{
  
   PopulateGrid()
   {
+     let orgId=localStorage.getItem("SelOrgId");
     this.srv.GetMainCourses().subscribe(
       {
         next:(data)=>

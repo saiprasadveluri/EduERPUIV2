@@ -1,5 +1,5 @@
 export interface OrganizationDTO{
-    OrgId:any,
+    OrgId?:any,
     OrgModuleType:any,
     ModuleTypeText:string|undefined,
     OrgName:string,

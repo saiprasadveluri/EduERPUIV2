@@ -2,35 +2,31 @@
     <div class="row flex-nowrap">
         <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                <a href="#" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <span class="fs-5 d-none d-sm-inline">Menu</span>
-                </a>
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     <li class="nav-item">
                         <a routerLink="/sysadminhome" class="nav-link align-middle px-0">
                             <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#submenuOF" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Map Organization Features</span> </a>
-                        <ul class="collapse show nav flex-column ms-1"  data-bs-parent="#submenuOF">
-                            <li class="w-100">
-                            <a routerLink="orgnizationFeatureSubscription" class="nav-link px-0"> <span class="d-none d-sm-inline"> Manage </span></a>
-                            </li>                            
-                        </ul>
+                    <li class="nav-item dropdown">
+                        <a href="#" data-bs-toggle="dropdown" class="nav-link px-0 align-middle dropdown-toggle">
+                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Manage Organizations</span> </a>
+                            <div class="dropdown-menu">
+                                <a routerLink="orgnizationFeatureSubscription" class="nav-link px-0 dropdown-item"> <span class="d-none d-sm-inline"> Manage Feature Subscription </span></a>
+                                <a routerLink="addNewOrganization" class="nav-link px-0"> <span class="d-none d-sm-inline">Add Organization</span></a>
+                            </div>                           
                     </li>  
-                    
-                     <li class="nav-item">
-                        <a href="#submenuOF" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">User Management</span> </a>
-                        <ul class="collapse show nav flex-column ms-1"  data-bs-parent="#submenuOF">
-                            <li class="w-100">
-                            <a routerLink="addNewAdmin" class="nav-link px-0"> <span class="d-none d-sm-inline"> Manage Admins </span></a>
-                            </li>                            
-                        </ul>
-                    </li> 
+                     <li class="nav-item dropdown">
+                        <a href="#" data-bs-toggle="dropdown" class="nav-link px-0 align-middle dropdown-toggle">
+                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">User Management</span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a routerLink="addNewAdmin" class="nav-link px-0 dropdown-item"> <span class="d-none d-sm-inline"> Add New Admins </span></a>
+                        </div>
+                        
+                     </li>                    
                 </ul>
+                <hr>
                 <hr>
                 <div class="dropdown pb-4">
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">

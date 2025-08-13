@@ -31,7 +31,9 @@ export class AddCourseComponent {
   
   AddNewCourse()
   {
+    let orgId=localStorage.getItem("SelOrgId");
     var dto:MainCourseDTO={
+      OrgId:orgId,
      CourseName:this.ctrlCourseName.value,
      DurationInYears:this.ctrlDuration.value,
      IsSpecializationsAvailable:this.ctrlIsSplAvailable.value==true?1:0,

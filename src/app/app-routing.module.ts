@@ -25,6 +25,7 @@ import { OrgnizationFeatureSubscriptionComponent } from './orgnization-feature-s
 import { SysAdminHomeComponent } from './sys-admin-home/sys-admin-home.component';
 import { NewAdminCreationComponent } from './new-admin-creation/new-admin-creation.component';
 import { GenerateBulkChalansComponent } from './fee-management/generate-bulk-chalans/generate-bulk-chalans.component';
+import { AddOrganizationComponent } from './add-organization/add-organization.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'} ,
@@ -34,11 +35,10 @@ const routes: Routes = [
   {path:'sysadminhome',component:SysAdminHomeComponent,
     children:[
       {path:'orgnizationFeatureSubscription',component:OrgnizationFeatureSubscriptionComponent},
-      {path:'addNewAdmin',component:NewAdminCreationComponent} 
-    
+      {path:'addNewAdmin',component:NewAdminCreationComponent},
+      {path:'addNewOrganization',component:AddOrganizationComponent}    
     ]},
   {path:'home',component:HomeComponent,
-
     children:[     
       {path:'generateBulkCahalan',component:GenerateBulkChalansComponent},  
       {path:'manageFeeHead',component:ManageFeeHeadComponent,canActivate:[featureGuard],
@@ -61,10 +61,10 @@ const routes: Routes = [
       {path:'manageExamType',component:ManageExamTypeComponent},
       {path:'addExam',component:AddExamComponent},
       {path:'manageExam',component:ManageExamComponent},
-      {path:'scheduleExam/:examId',component:ScheduleExamComponent},  
-         
+      {path:'scheduleExam/:examId',component:ScheduleExamComponent},           
     ]
-    }  
+    },
+    {path:'studenthome',component:StudentHomeComponent}
 ];
 
 @NgModule({

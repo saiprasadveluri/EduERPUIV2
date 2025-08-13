@@ -1,0 +1,33 @@
+<form #orgForm="ngForm" (ngSubmit)="AddNewOrganization()">
+<div class="row">
+    <div class="col-lg-12">
+        <div class="form-group">
+            <div class="form-control">
+                <label>Module Type</label>
+            </div>
+            <div >
+                <select class="form-control" [(ngModel)]="selAppModule" name="selAppModule">
+                    <option *ngFor="let am of appModules" [value]="am.ModuleId">
+                        {{am.ModuleName}}
+                    </option>
+                </select>
+            </div>
+            <div>
+                <input type="text" name="orgName" [(ngModel)]="orgName" class="form-control"/>
+            </div>
+            <div>
+                <input  type="email" name="orgEmail" [(ngModel)]="orgEmail" class="form-control" placeholder="Organization Email"/>
+            </div>
+            <div>
+                <input  type="text" name="orgMobile" [(ngModel)]="orgMobile" class="form-control" placeholder="Organization Mobile"/>
+            </div>
+            <div>
+                <textarea  type="text" name="orgAddress" [(ngModel)]="orgAddress" class="form-control" placeholder="Organization Address"></textarea>
+            </div>
+            <div>
+                <button type="submit" [disabled]="!IsFormValid(orgForm)">Add New Organization</button>
+            </div>
+        </div>
+    </div>
+</div>
+</form>

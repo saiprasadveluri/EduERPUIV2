@@ -48,6 +48,7 @@ export class ManageSubjectComponent implements OnInit,OnDestroy {
     this.srv.GetAllSubjects().subscribe({
         next:(data)=>{
           this.subjecList=data.Data
+          console.log(this.subjecList)
           this.dtTrigger.next(this.dtOptions);
         },
         error:(err)=>{

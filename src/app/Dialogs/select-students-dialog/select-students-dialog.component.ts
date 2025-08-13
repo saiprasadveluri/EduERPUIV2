@@ -51,6 +51,7 @@ export class SelectStudentsDialogComponent implements OnInit {
 
   PopulateMainCourses()
   { 
+    var OrgId=localStorage.getItem("SelOrgId");
     this.srv.GetMainCourses().subscribe({
       next:(data)=>{
         this.mainCoursesArray=data.Data;        

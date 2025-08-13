@@ -166,6 +166,7 @@ PopulateScheduleData()
 {
   this.srv.GetExamSchedule(this.selExamId).subscribe({
     next:(data)=>{
+      console.log(data)
       this.examScheduleData=data.Data;
     }
   })

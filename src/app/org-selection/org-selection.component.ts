@@ -5,6 +5,7 @@ import { DbAccessServiceService } from '../Infra/db-access-service.service';
 import { ShowDialogService } from '../Infra/show-dialog.service';
 import { UserOrgMapDTO } from '../models/user-org-map-dto';
 import { TokenRequestDTO } from '../models/token-request-dto';
+import LoadRoute from '../Infra/ViewLoader';
 
 @Component({
   selector: 'app-org-selection',
@@ -32,7 +33,7 @@ export class OrgSelectionComponent {
       "SelOrgId":this.ctrlOrgSel.value
     }
     console.log(this.ctrlOrgSel.value);
-    console.log(localStorage.getItem('AccessToken'))
+    
     this.srv.GetAccessToken(tokenRequestDTO).subscribe(
       {
         next:(data)=>{
@@ -42,7 +43,8 @@ export class OrgSelectionComponent {
             console.log(accessToken);
             localStorage.setItem("AccessToken",accessToken);
             localStorage.setItem("SelOrgId",tokenRequestDTO.SelOrgId);
-            this.router.navigate(['home']);
+              LoadRoute(this.router);
+            //this.router.navigate(['home']);
           }
           else
           {

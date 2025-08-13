@@ -28,6 +28,7 @@ import { OrgnizationFeatureSubscriptionDTO } from '../models/OrgnizationFeatureS
 import { UserOrgMapDTO } from '../models/user-org-map-dto';
 import { UserInfoDTO } from '../models/user-Info-dto';
 import { GenerateClassChalansDTO } from '../models/GenerateClassChalansDTO';
+import { ApplicationModuleDTO } from '../models/application-module-dto';
 @Injectable({
   providedIn: 'root'
 })
@@ -284,6 +285,16 @@ GenerateClassChalans(dto:GenerateClassChalansDTO):Observable<any>
 {
 return this.httpHelper.HttpPost("Chelan",dto);
 }
+
+GetAllApplicationModules():Observable<any>
+{
+  return this.httpHelper.HttpGet("ApplicationModule");
+}
+AddNewOrganization(dto:OrganizationDTO):Observable<any>
+{
+  return this.httpHelper.HttpPost("Organization",dto);
+}
+
   /*GetCertificateById(id:any):Observable<CertificateDTO>
   {
     return this.httpHelper.HttpGet<CertificateDTO>(`Certificate/${id}`,undefined,undefined);
