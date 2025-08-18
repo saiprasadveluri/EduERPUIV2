@@ -7,13 +7,13 @@
     <div class="col-lg-12">
         <form [formGroup]="frm" (ngSubmit)="AddNewAdmin()">
           <div>
-            <input type="email" formControlName="Email"/>
+            <input type="email" formControlName="Email" class="form-control" placeholder="Enter Email"/>
           </div>
           <div>
-            <input type="text" formControlName="DisplayName"/>
+            <input type="text" formControlName="DisplayName" class="form-control" placeholder="Enter DisplayName"/>
           </div>
            <div>
-            <button>Add Admin</button>
+            <button class="btn btn-primary form-control">Add Admin</button>
           </div>
         </form>
     </div>
