@@ -18,3 +18,41 @@
         </form>
     </div>
 </div>
+<div class="row">
+  <div class="col-lg-12">
+    <span>Orgnization Admins:</span>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Display Name
+          </th>
+          <th>
+            Email
+          </th>         
+          <th>
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let adm of OrgAdmins">
+          <td>
+            {{adm.DisplayName}}
+          </td>
+          <td>
+            {{adm.UserEmail}}
+          </td>
+          <td>
+            <button class="btn btn-link" (click)="RevokeAccess(adm.UserId)">Revoke Admin Access</button>
+            <button class="btn btn-link" (click)="UpdateUserData(adm.UserId)">Update Info</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

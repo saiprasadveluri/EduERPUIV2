@@ -26,6 +26,7 @@ import { SysAdminHomeComponent } from './sys-admin-home/sys-admin-home.component
 import { NewAdminCreationComponent } from './new-admin-creation/new-admin-creation.component';
 import { GenerateBulkChalansComponent } from './fee-management/generate-bulk-chalans/generate-bulk-chalans.component';
 import { AddOrganizationComponent } from './add-organization/add-organization.component';
+import { ManageUsersComponent } from './manage-users/manage-users.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'} ,
@@ -39,7 +40,8 @@ const routes: Routes = [
       {path:'addNewOrganization',component:AddOrganizationComponent}    
     ]},
   {path:'home',component:HomeComponent,
-    children:[     
+    children:[  
+      {path:'manageUsers',component:ManageUsersComponent}, 
       {path:'generateBulkCahalan',component:GenerateBulkChalansComponent},  
       {path:'manageFeeHead',component:ManageFeeHeadComponent,canActivate:[featureGuard],
       data:{roledata:[{feature:RoleConsts.FEE_MANAGEMENT_FEATURE,role:RoleConsts.ROLE_ADMIN}]}

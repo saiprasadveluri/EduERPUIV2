@@ -29,6 +29,7 @@ import { UserOrgMapDTO } from '../models/user-org-map-dto';
 import { UserInfoDTO } from '../models/user-Info-dto';
 import { GenerateClassChalansDTO } from '../models/GenerateClassChalansDTO';
 import { ApplicationModuleDTO } from '../models/application-module-dto';
+import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
 @Injectable({
   providedIn: 'root'
 })
@@ -281,6 +282,11 @@ AddOrganizationAdmin(dto:UserInfoDTO):Observable<any>
   return this.httpHelper.HttpPost("UserInfo",dto);
 }
 
+GetOrganizationAdmins(OrgId:any):Observable<any>
+{
+  return this.httpHelper.HttpGet(`UserInfo/Admins/${OrgId}`);
+}
+
 GenerateClassChalans(dto:GenerateClassChalansDTO):Observable<any>
 {
 return this.httpHelper.HttpPost("Chelan",dto);
@@ -295,6 +301,15 @@ AddNewOrganization(dto:OrganizationDTO):Observable<any>
   return this.httpHelper.HttpPost("Organization",dto);
 }
 
+GetAllOrgUsers():Observable<any>
+{
+  return this.httpHelper.HttpGet(`UserInfo`);
+}
+
+GetAppUserFeatureRoles():Observable<any>
+{
+  return this.httpHelper.HttpGet(`OrgUserFeatureRoleMap`);
+}
   /*GetCertificateById(id:any):Observable<CertificateDTO>
   {
     return this.httpHelper.HttpGet<CertificateDTO>(`Certificate/${id}`,undefined,undefined);

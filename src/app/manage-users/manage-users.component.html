@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-lg-12">
+        <span>Manage Organization Users</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table table-striped">
+            <tr>
+                <th>
+                    Display Name
+                </th>
+                <th>
+                    Email
+                </th>               
+                <th>
+                    Actions
+                </th>
+            </tr>
+            <tr *ngFor="let usr of UserList">
+                <td>
+                    {{usr.DisplayName}}
+                </td>
+                <td>
+                    {{usr.UserEmail}}
+                </td>
+                <td>
+                    <button class="btn btn-link" (click)="ManageUserRoles(usr.UserId)">Manage Roles</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

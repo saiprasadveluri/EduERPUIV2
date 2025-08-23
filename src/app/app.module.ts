@@ -47,6 +47,7 @@ import { SysAdminHomeComponent } from './sys-admin-home/sys-admin-home.component
 import { NewAdminCreationComponent } from './new-admin-creation/new-admin-creation.component';
 import { GenerateBulkChalansComponent } from './fee-management/generate-bulk-chalans/generate-bulk-chalans.component';
 import { AddOrganizationComponent } from './add-organization/add-organization.component';
+import { ManageUsersComponent } from './manage-users/manage-users.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,7 +81,8 @@ import { AddOrganizationComponent } from './add-organization/add-organization.co
     SysAdminHomeComponent,
     NewAdminCreationComponent,
     GenerateBulkChalansComponent,
-    AddOrganizationComponent
+    AddOrganizationComponent,
+    ManageUsersComponent
   ],
   imports: [
     BrowserModule,

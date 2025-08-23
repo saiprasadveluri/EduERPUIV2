@@ -13,6 +13,7 @@ import { UserInfoDTO } from '../models/user-Info-dto';
 export class NewAdminCreationComponent {
 frm:FormGroup;
 OrganizationId:any;
+OrgAdmins:UserInfoDTO[]=[];
  constructor(private frmBuilder:FormBuilder, private router:Router,private srv:DbAccessServiceService,private dlgSrv:ShowDialogService)
   {
    this.frm= this.frmBuilder.group(
@@ -23,12 +24,22 @@ OrganizationId:any;
     )
   }
   ngOnInit(): void {
-    
+    this.UpdateOrgAdminGrid();
   }
 
   ChangeOrganization(evt:any)
   {
     this.OrganizationId=evt;
+    this.UpdateOrgAdminGrid();
+  }
+
+  UpdateOrgAdminGrid()
+  {
+    this.srv.GetOrganizationAdmins(this.OrganizationId).subscribe({
+      next:(res)=>{
+        this.OrgAdmins=res.Data;
+      }
+    });
   }
   AddNewAdmin()
   {
@@ -50,6 +61,16 @@ OrganizationId:any;
         this.frm.reset();
       }
     })
+  }
+
+  RevokeAccess(UserId:any)
+  {
+
+  }
+
+  UpdateUserData(UserId:any)
+  {
+    
   }
   
 }
